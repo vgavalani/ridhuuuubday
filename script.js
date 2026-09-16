@@ -133,7 +133,7 @@ cornerBtn.addEventListener('click', () => {
   }
 });
 
-/* ── scene 1 : intro — plant grows, flower blooms ────── */
+/* ── scene 1 : intro petal rain ───────────────────────── */
 (function petalRain() {
   const zone = $('#introPetals');
   for (let i = 0; i < 18; i++) {

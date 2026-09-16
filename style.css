@@ -91,7 +91,7 @@ body {
 .cm-eq i:nth-child(4) { animation-delay: .1s; }
 @keyframes eq { 0%,100% { height: 5px; } 50% { height: 15px; } }
 
-/* ═══════════ SCENE 1 : INTRO — plant grows, flower blooms ═══════════ */
+/* ═══════════ SCENE 1 : HEARTY INTRO ═══════════ */
 .intro-screen {
   position: fixed;
   inset: 0;
