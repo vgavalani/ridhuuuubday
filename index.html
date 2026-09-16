@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#ff4d88">
+<title>For My Ridhi 💗 — The Queen of My Heart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- romantic aurora background -->
+<div class="aurora a1"></div>
+<div class="aurora a2"></div>
+<div class="aurora a3"></div>
+
+<!-- always-visible music button : top right corner -->
+<button id="cornerMusic" class="corner-music" aria-label="music">
+  <span class="cm-emoji">🎵</span>
+  <span class="cm-eq hidden"><i></i><i></i><i></i><i></i></span>
+</button>
+<audio id="bgMusic" loop preload="auto">
+  <source id="musicSrc1" src="song.mp3" type="audio/mpeg">
+  <source id="musicSrc2" src="tu_chahiye.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ═══════════════════ SCENE 1 : FLOWER BLOOM INTRO (with roots) ═══════════════════ -->
+<div id="introScreen" class="intro-screen">
+  <div class="intro-flower">
+    <div class="petal-rain-zone" id="introPetals"></div>
+
+    <div class="plant-stage">
+      <svg class="plant-svg" viewBox="0 0 340 460" fill="none">
+        <!-- soil body -->
+        <ellipse class="soil" cx="170" cy="352" rx="150" ry="26" fill="#6b3f1d"/>
+        <!-- roots (draw first, they grow up into the stem) -->
+        <g class="roots">
+          <path class="rp r1" pathLength="1" d="M170 350 C158 380 120 400 88 416" stroke="#9a6a3a" stroke-width="7" stroke-linecap="round"/>
+          <path class="rp r2" pathLength="1" d="M170 352 C176 372 150 396 128 412" stroke="#b5824d" stroke-width="5.5" stroke-linecap="round"/>
+          <path class="rp r3" pathLength="1" d="M170 354 C182 380 215 402 246 418" stroke="#9a6a3a" stroke-width="7" stroke-linecap="round"/>
+          <path class="rp r4" pathLength="1" d="M170 356 C176 388 205 408 224 428" stroke="#b5824d" stroke-width="5.5" stroke-linecap="round"/>
+        </g>
+        <!-- stem -->
+        <path class="stem" pathLength="1" d="M170 350 C166 300 174 250 169 205 C166 190 168 178 170 168"/>
+        <!-- leaves -->
+        <path class="leaf leaf-l" pathLength="1" d="M170 292 C120 272 92 284 84 300 C100 312 134 316 170 300 Z"/>
+        <path class="leaf leaf-r" pathLength="1" d="M170 252 C216 232 246 238 256 254 C240 268 206 268 170 260 Z"/>
+        <!-- small heart roots -->
+        <path class="rp root-heart" pathLength="1" d="M170 358 C150 356 138 366 140 378 C142 392 158 396 170 386 C182 396 198 392 200 378 C202 366 190 356 170 358 Z" stroke="#ff5e96" stroke-width="4"/>
+      </svg>
+
+      <!-- blooming flower on top of the stem -->
+      <div class="bloom bloom-top" id="introBloom">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div>
+        <div class="flower-center intro-center">💗</div>
+      </div>
+
+      <!-- side roses -->
+      <div class="rose rose-left"></div>
+      <div class="rose rose-right"></div>
+      <div class="blurb blurb-1">🌷</div>
+      <div class="blurb blurb-2">🌹</div>
+      <div class="blurb blurb-3">🌸</div>
+      <div class="blurb blurb-4">💐</div>
+    </div>
+  </div>
+
+  <div class="intro-title">Ridhi 💗</div>
+  <div class="intro-sub">planting the most beautiful thing earth ever saw…</div>
+  <div class="intro-tap" id="introTap">✨ tap to bloom your world ✨</div>
+</div>
+
+<!-- ═══════════════════ SCENE 2 : TEASEFUL QUIZ GATE ═══════════════════ -->
+<div id="quizScreen" class="quiz-screen hidden">
+  <div class="quiz-container">
+    <div class="quiz-hearts" id="quizHearts"></div>
+    <div class="quiz-top">
+      <div class="quiz-progress"><span id="quizProgressNum">1</span>/<span id="quizTotal">6</span></div>
+      <div class="quiz-lock">🔒 one small test before you enter my heart's world</div>
+    </div>
+
+    <div id="quizCard" class="quiz-card">
+      <div class="quiz-emoji" id="quizEmoji">💍</div>
+      <h2 id="quizQuestion">Am I the most annoying person alive?</h2>
+      <div class="quiz-options">
+        <button class="quiz-option yes-option" data-answer="yes">Yes 💖</button>
+        <button class="quiz-option no-option" data-answer="no">No 😏</button>
+      </div>
+    </div>
+
+    <div class="quiz-hint">any wrong answer = instant public embarrassment 👀</div>
+  </div>
+</div>
+
+<!-- ═══════════════════ TEASE OVERLAY (full-screen, annoying) ═══════════════════ -->
+<div id="teaseOverlay" class="tease-overlay hidden">
+  <div class="tease-content">
+    <div class="tease-flash" id="teaseFlash">WRONG. ANSWER.</div>
+    <div class="tease-emoji" id="teaseEmoji">🤨🤨🤨</div>
+    <h2 id="teaseTitle">EXCUSE ME?!</h2>
+    <p id="teaseText">You said NO?? To ME?? The guy who would literally defeat 99 people for you?</p>
+    <div class="tease-stingers" id="teaseStingers"></div>
+    <button class="tease-retry" id="teaseRetryBtn">okay okay, I take it back 😭</button>
+  </div>
+</div>
+
+<!-- ═══════════════════ SCENE 3 : MAIN BIRTHDAY WORLD ═══════════════════ -->
+<main id="mainWorld" class="main-world hidden">
+  <div class="float-background" id="floatBg"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="big-flower" id="heroFlower">
+      <div class="bf-petal"></div><div class="bf-petal"></div><div class="bf-petal"></div>
+      <div class="bf-petal"></div><div class="bf-petal"></div><div class="bf-petal"></div>
+      <div class="bf-petal"></div><div class="bf-petal"></div>
+      <div class="bf-center">💗</div>
+    </div>
+    <p class="hero-kicker">🎉 the day the earth got lucky 🎉</p>
+    <h1 class="hero-title">HAPPY 20TH<br><span>BIRTHDAY RIDHUUU</span></h1>
+    <p class="hero-sub">my love, my baby, my whole entire world 💞</p>
+    <div class="earth-holder hero-holder" data-mini="since the queen arrived…"></div>
+  </section>
+
+  <!-- Time on Earth -->
+  <section class="time-section">
+    <div class="time-card">
+      <h2>🌍 earth's lucky number is: <span class="accent">YOU</span></h2>
+      <p class="time-date">born 17 september 2006 • the day the universe smiled</p>
+      <div class="earth-timer">
+        <div class="et-box et-years"><span id="etYears">20</span><small>years of gold</small></div>
+        <div class="et-box et-months"><span id="etMonths">0</span><small>months of magic</small></div>
+        <div class="et-box et-mins"><span id="etMins">0</span><small>minutes of us</small></div>
+        <div class="et-box et-secs"><span id="etSecs">0</span><small>seconds of love</small></div>
+      </div>
+      <div class="time-stats">
+        <div class="stat"><span id="statHeartbeats">0</span><small>heartbeats I've missed counting</small></div>
+        <div class="stat"><span id="statBreaths">0</span><small>breaths of pure magic</small></div>
+        <div class="stat"><span id="statMoments">0</span><small>reasons the world is better</small></div>
+      </div>
+      <p class="time-caption">the planet has been <b>showing off</b> ever since 💅✨</p>
+    </div>
+  </section>
+
+  <!-- Love Letter -->
+  <section class="letter-section">
+    <div class="love-letter">
+      <div class="letter-seal">💌</div>
+      <h2>A letter from the boy who loves you most</h2>
+      <div class="earth-holder" data-mini="you've been making the universe better for…"></div>
+      <div class="letter-body" id="letterBody"></div>
+      <p class="letter-sign">— forever yours, vanshuuuu 🫶🏻</p>
+    </div>
+  </section>
+
+  <!-- The 12:00 AM Wish -->
+  <section class="midnight-section">
+    <div class="midnight-card">
+      <div class="midnight-emoji">🌙📱✨</div>
+      <h2>the 12:00 am wish</h2>
+      <span class="m-when">a little confession from my heart</span>
+      <p>I always dreamed about it, Ridhi — calling you at exactly <b>12:00 AM</b> on your birthday, voice cracking, heart racing, wishing you first before the whole world even gets a chance. I used to daydream about that moment like it was the finale of our whole story.</p>
+      <p>And honestly? Some nights I got quietly upset when you didn't want calls. I'd think things like <i>"but the 12am call is OUR thing…"</i> — and I'd sulk a little, keeping it to myself.</p>
+      <p>Then I remembered my birthday last time. <b>You</b> — sleepy, at 12am, on call — just because you knew I loved it. You showed up for ME in my language, even when it wasn't yours.</p>
+      <p>So now it's your day, my queen. And this one is <b>100% yours.</b> Calls if you want, texts if you like, silence if you'd rather — I'll love you loudly in whatever way YOU feel loved. No traditions, no "shoulds".</p>
+      <div class="midnight-end">the queen's rules, remembered. 👑💗</div>
+      <div class="earth-holder" data-mini="even at midnight, it's her way 💜"></div>
+    </div>
+  </section>
+
+  <!-- Our Memories : photos + videos -->
+  <section class="memories">
+    <h2 class="section-title">our little universe 📸🎬</h2>
+    <p class="section-sub">tap to fall in love with us all over again</p>
+    <div class="earth-holder" data-mini="&amp; counting — every second more beautiful"></div>
+
+    <div class="media-grid">
+      <div class="media-card photo-card">
+        <div class="media-frame">
+          <div class="media-stamp">💗</div>
+          <span class="media-quote">the day you smiled at me, I forgot my own name</span>
+        </div>
+        <div class="media-label">our photo #1</div>
+        <button class="media-add">➕ add photo</button>
+      </div>
+      <div class="media-card video-card">
+        <div class="media-frame video-frame">
+          <div class="play-btn">▶</div>
+          <span class="media-quote">the sound of your laugh deserves its own anthems</span>
+        </div>
+        <div class="media-label">our video #1</div>
+        <button class="media-add">➕ add video</button>
+      </div>
+      <div class="media-card photo-card">
+        <div class="media-frame">
+          <div class="media-stamp">💘</div>
+          <span class="media-quote">proof that magic is just you being you</span>
+        </div>
+        <div class="media-label">our photo #2</div>
+        <button class="media-add">➕ add photo</button>
+      </div>
+      <div class="media-card video-card">
+        <div class="media-frame video-frame">
+          <div class="play-btn">▶</div>
+          <span class="media-quote">a 3-second clip that rebooted my heart</span>
+        </div>
+        <div class="media-label">our video #2</div>
+        <button class="media-add">➕ add video</button>
+      </div>
+      <div class="media-card photo-card">
+        <div class="media-frame">
+          <div class="media-stamp">🫶🏻</div>
+          <span class="media-quote">my favourite part of everywhere</span>
+        </div>
+        <div class="media-label">our photo #3</div>
+        <button class="media-add">➕ add photo</button>
+      </div>
+      <div class="media-card video-card">
+        <div class="media-frame video-frame">
+          <div class="play-btn">▶</div>
+          <span class="media-quote">your eyes, but make it a love story</span>
+        </div>
+        <div class="media-label">our video #3</div>
+        <button class="media-add">➕ add video</button>
+      </div>
+    </div>
+
+    <div class="media-tip">✨ tip: drop your photos/videos into the <b>ridhi folder</b> and rename them to match the card below — they'll auto-appear ✨</div>
+  </section>
+
+  <!-- Romantic Trending Card -->
+  <section class="trending-section">
+    <div class="trend-card">
+      <div class="trend-glow"></div>
+      <h2 class="section-title">💖 why i'm trending on every app rn 💖</h2>
+      <div class="earth-holder" data-mini="this is how long you've owned the world:"></div>
+      <div class="trend-items">
+        <div class="trend-item"><span class="trend-no">#1</span> most obsessed boy in the world</div>
+        <div class="trend-item"><span class="trend-no">#2</span> mentally living in a Ridhi edit</div>
+        <div class="trend-item"><span class="trend-no">#3</span> challenges accepted: loving you forever</div>
+        <div class="trend-item"><span class="trend-no">#4</span> this was not sponsored, it's genuine 😤</div>
+        <div class="trend-item"><span class="trend-no">#5</span> trending worldwide • your name only</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reasons / Swipe Hearts -->
+  <section class="reasons-section">
+    <h2 class="section-title">💗 my heart is obsessed with you 💗</h2>
+    <div class="earth-holder" data-mini="all these seconds, one girl ✨"></div>
+    <div id="swipeDeck" class="swipe-deck"></div>
+    <div class="swipe-controls">
+      <button class="swipe-btn swipe-no" onclick="swipeCard('no')">👎</button>
+      <button class="swipe-btn swipe-super" onclick="swipeCard('super')">💘</button>
+      <button class="swipe-btn swipe-yes" onclick="swipeCard('yes')">👍</button>
+    </div>
+    <p class="swipe-hint">every card = a real reason my heart skips for you</p>
+  </section>
+
+  <!-- Final Wish -->
+  <section class="wish-section">
+    <div class="candle-box">
+      <div class="earth-holder" data-mini="time the universe spent perfecting you…"></div>
+      <div class="candle">
+        <div class="candle-flame"></div>
+        <div class="candle-body"></div>
+      </div>
+      <button class="blow-btn" id="blowBtn">🌬️ blow the candle &amp; make a wish</button>
+      <div class="wish-message hidden" id="wishMessage">
+        <h3>granted. ✨</h3>
+        <p>whatever you wished for is already yours — because i prayed it for you, and my Ridhi's world doesn't say no to me. even the universe does what i want when it's about you.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>made with 💕 + 3am thoughts + endless love<br>from a boy who's never been more hers — vanshuuuu</footer>
+</main>
+
+<!-- ═══════════════════ LIGHTBOX ═══════════════════ -->
+<div id="lightbox" class="lightbox hidden">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <div class="lb-content" id="lbContent"></div>
+  <p class="lb-hint">once you add your photo/video here, this box glows with your memories 💫</p>
+</div>
+
+<!-- confetti canvas -->
+<canvas id="confettiCanvas"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
