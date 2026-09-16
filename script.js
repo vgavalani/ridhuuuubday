@@ -87,19 +87,27 @@ const REASONS = [
   { e: '👑', t: 'you walk into my mind and it instantly becomes royalty' },
 ];
 
-const LETTER = `Hey my Ridhi, my Chiki, my everything… 🥹💗
+const LETTER = `Ridhi. My Ridhu.
+Just your name in my mind and my whole day changes.
+The countdown is over, my Chiku. And I tried, whole night I tried, but no sentence is big enough. Because some love is too soft for words, and ours is that love. It lives in your good mornings, in the way you say my name, in those 4:50 am calls where sleep was never as precious as you.
 
-They say every soul has a year they belong to. But you were born on 17 September 2006, and honestly? The whole world got the memo that day — a queen had just arrived.
+We started as strangers on an app I barely even liked. I never knew one little message could give me a heartbeat like this. You were a stranger once, my Chikii. Now you're my first thought at sunrise and my last prayer at night.
 
-Before you, my life was just… days. Now every single one of them has a highlight, and her name is Ridhi.
+You're so strong, my pyala sa bachuu. You carry your whole world on your shoulders, face everything alone, and still save the softest corner of your heart just for me. Do you have any idea what that does to me, Ridhu? I look at you and feel like I won a lottery I never even bought a ticket for.
 
-I love the way you scrunch your nose. I love your sleepy voice. I love how you get angry at me for no reason and then love me harder anyway. I love that you're beautiful and you STILL don't get why people stare. I love your vibe, your drama, your flips, your mindset, your giggles.
+I love the way we love. The silly names, the Guggu Muggu and Mendak language nobody else understands, the way you call me your idiot and I melt every single time. You're not just my girlfriend, you're also my best friend, the one I run to first with every good, every bad, every stupid joke. And I wouldn't trade it for anything in this universe.
 
-Forever is a scary word for most people. For me? Forever just means: more time with you.
+If I ever get another life, I'll still find you. And I'll still fall for you, every single time.
 
-So here's my promise — through every dumb fight, every late night, every photo, every video, every version of us that life throws… I will keep choosing you. Loudly. Stupidly. Proudly.
+So here's my promise, written on your birthday so I can never forget it. One day I'll take you to every place you've ever dreamed of, hand in hand. One day I'll sing for you, and you'll laugh at how bad I am, and I'll sing even louder just to see you smile. One day, when you're tired, you'll close your eyes in my arms, and I'll stay awake just to keep you safe.
 
-Happy 20th birthday, my heart. This website is 0.0001% of what you mean to me — because I couldn't fit the rest into code.`;
+This day is yours, my Chiku. My Chikii. My Guggu Muggu. My everything.
+There's something waiting for you at the end of this page. Open it slowly, and know that every little part of it was made with all the love I have for you.
+
+Happy Birthday, my Ridhu. You're my girlfriend, my best friend, my home, my calm, and my loudest happiness.
+Your Mendak, the luckiest boy in the world
+
+Best girlfriend and best friend forever, my Ridhu`;
 
 /* ── music (top-right button, user gesture driven) ───── */
 const audio = $('#bgMusic');
@@ -133,33 +141,62 @@ cornerBtn.addEventListener('click', () => {
   }
 });
 
-/* ── scene 1 : intro petal rain ───────────────────────── */
-(function petalRain() {
-  const zone = $('#introPetals');
-  for (let i = 0; i < 18; i++) {
-    const p = document.createElement('div');
-    p.className = 'intro-petal';
-    p.textContent = pick(['🌹', '🌸', '💗', '🌷', '🌻']);
-    p.style.left = rand(4, 96) + '%';
-    p.style.fontSize = rand(11, 21) + 'px';
-    p.style.animationDuration = rand(7, 16) + 's';
-    p.style.animationDelay = rand(0, 11) + 's';
-    zone.appendChild(p);
+/* ── scene 1 : tulip intro magic ─────────────────────── */
+(function tulipIntroEffects() {
+  // glowing particles drifting up from the soil
+  const soil = $('#soilParticles');
+  if (soil) {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'soil-particle';
+      p.style.left = rand(6, 94) + '%';
+      p.style.bottom = rand(8, 55) + 'px';
+      p.style.animationDuration = rand(6, 12) + 's';
+      p.style.animationDelay = rand(0, 8) + 's';
+      soil.appendChild(p);
+    }
   }
+
+  // tiny hearts gently sprinkling behind the text
+  const hearts = $('#floatingHearts');
+  function spawnHeart() {
+    if (!hearts) return;
+    const h = document.createElement('div');
+    h.className = 'floating-heart';
+    h.textContent = pick(['💗', '💖', '💘', '🩷', '💕', '💞']);
+    h.style.left = rand(5, 95) + '%';
+    h.style.top = rand(10, 90) + '%';
+    h.style.fontSize = rand(6, 11) + 'px';
+    const hx = (Math.random() > .5 ? 1 : -1) * rand(10, 30);
+    const hy = -rand(15, 45);
+    h.style.setProperty('--hx', '0px');
+    h.style.setProperty('--hy', '0px');
+    h.style.setProperty('--hr', '0deg');
+    h.style.setProperty('--hx1', hx + 'px');
+    h.style.setProperty('--hy1', (hy * .4) + 'px');
+    h.style.setProperty('--hr1', rand(-15, 15) + 'deg');
+    h.style.setProperty('--hx2', (hx * .8) + 'px');
+    h.style.setProperty('--hy2', (hy * .9) + 'px');
+    h.style.setProperty('--hr2', rand(-25, 25) + 'deg');
+    hearts.appendChild(h);
+    setTimeout(() => h.remove(), 6500);
+  }
+  for (let i = 0; i < 12; i++) setTimeout(spawnHeart, i * 420);
+  setInterval(spawnHeart, 2000);
 })();
 
-const introTap = $('#introTap');
+const introScreen = $('#introScreen');
 let introUnlocked = false;
 let introDone = false;
 setTimeout(() => { introUnlocked = true; }, 3000);
-introTap.addEventListener('click', () => {
+introScreen.addEventListener('click', () => {
   if (!introUnlocked || introDone) return;
   introDone = true;
-  $('#introScreen').classList.add('done');
+  introScreen.classList.add('done');
   startMusic();
   setTimeout(() => startQuiz(), 1000);
 });
-setTimeout(() => { if (!introDone && introUnlocked) introTap.click(); }, 8000);
+setTimeout(() => { if (!introDone && introUnlocked) introScreen.click(); }, 8000);
 
 /* ── scene 2 : quiz gate ─────────────────────────────── */
 let qIndex = 0;
@@ -256,7 +293,6 @@ $('#teaseRetryBtn').addEventListener('click', () => {
 
 /* ── finish quiz → main world ────────────────────────── */
 function finishQuiz() {
-  chipConfetti();
   $('#quizScreen').classList.add('hidden');
   const world = $('#mainWorld');
   world.classList.remove('hidden');
@@ -264,25 +300,17 @@ function finishQuiz() {
   initEarthTimers();
   typeLetter();
   startFloatingBackground();
+  spawnHeroFlowers();
   initSwipeDeck();
   window.scrollTo(0, 0);
   if (!musicOn) startMusic();
-  setTimeout(() => chipConfetti(), 1400);
 }
 
 /* ── earth timer : born 17 sep 2006 ──────────────────── */
 const BIRTH = new Date('2006-09-17T00:00:00').getTime();
 
 function initEarthTimers() {
-  const all = [];
-
-  // featured card (4 boxes with ids)
-  all.push({
-    y: $('#etYears'), mo: $('#etMonths'), mi: $('#etMins'), s: $('#etSecs'),
-  });
-
-  const hb = $('#statHeartbeats'), br = $('#statBreaths'), mo = $('#statMoments');
-  const startNow = Date.now();
+  const el = { y: $('#etYears'), mo: $('#etMonths'), mi: $('#etMins'), s: $('#etSecs') };
 
   tick();
   setInterval(tick, 500);
@@ -292,56 +320,37 @@ function initEarthTimers() {
     const diff = Math.max(0, now - BIRTH);
 
     const years   = Math.floor(diff / (365.2425 * 864e5));
-    const months  = Math.floor(diff / (30.4375 * 864e5)); // total months on earth
-    const minutes = Math.floor(diff / 6e4);               // total minutes
-    const seconds = Math.floor(diff / 1e3);               // total seconds
+    const months  = Math.floor(diff / (30.4375 * 864e5));
+    const minutes = Math.floor(diff / 6e4);
+    const seconds = Math.floor(diff / 1e3);
 
-    for (const t of all) {
-      setTxt(t.y, years);
-      setTxt(t.mo, months);
-      setTxt(t.mi, minutes.toLocaleString('en-IN'));
-      setTxt(t.s, seconds.toLocaleString('en-IN'));
-    }
-
-    // fluffy growing stats since she opened the page (also counts "the earth got lucky")
-    const since = now - startNow;
-    hb.textContent = Math.floor(since / 1000 * 1.2).toLocaleString('en-IN');
-    br.textContent = Math.floor(since / 1000 * 4.9).toLocaleString('en-IN');
-    mo.textContent = Math.floor(since / 1000 * 2.7).toLocaleString('en-IN');
+    setTxt(el.y, years);
+    setTxt(el.mo, months.toLocaleString('en-IN'));
+    setTxt(el.mi, minutes.toLocaleString('en-IN'));
+    setTxt(el.s, seconds.toLocaleString('en-IN'));
   }
-  function setTxt(el, v) {
+  function setTxt(node, v) {
     v = String(v);
-    if (el.textContent !== v) el.textContent = v;
+    if (node.textContent !== v) node.textContent = v;
   }
 }
 
-/* ── love letter typing ──────────────────────────────── */
+/* ── love letter ─────────────────────────────────────── */
 function typeLetter() {
   const el = $('#letterBody');
   el.innerHTML = '';
-  let i = 0;
   let caret = document.createElement('span');
   caret.className = 'caret';
   function step() {
-    if (i < LETTER.length) {
-      const ch = LETTER[i];
-      if (ch === '\n') {
-        el.appendChild(document.createElement('br'));
-      } else {
-        el.appendChild(document.createTextNode(ch));
-      }
-      caret.remove();
-      caret = document.createElement('span');
-      caret.className = 'caret';
-      el.appendChild(caret);
-      i++;
-      setTimeout(step, 8);
-    } else {
-      caret.remove();
-    }
+    caret.remove();
+    el.textContent = LETTER;
+    caret = document.createElement('span');
+    caret.className = 'caret';
+    el.appendChild(caret);
+    setTimeout(() => caret.remove(), 900);
   }
   const io = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) { io.disconnect(); setTimeout(step, 500); }
+    if (entries[0].isIntersecting) { io.disconnect(); setTimeout(step, 400); }
   }, { threshold: 0.3 });
   io.observe(el);
 }
@@ -361,6 +370,27 @@ function startFloatingBackground() {
     host.appendChild(h);
     setTimeout(() => h.remove(), 30000);
   }, 1300);
+}
+
+/* ── hero animated flowers ──────────────────────────── */
+function spawnHeroFlowers() {
+  const host = $('#heroFlowers');
+  if (!host) return;
+  const flowers = ['🌸', '🌷', '🌹', '🌺', '🌻', '💐', '🌼'];
+  function drop() {
+    const f = document.createElement('div');
+    f.className = 'hero-flower';
+    f.textContent = pick(flowers);
+    f.style.left = rand(5, 95) + '%';
+    f.style.bottom = '0';
+    f.style.fontSize = rand(18, 36) + 'px';
+    f.style.setProperty('--fr', rand(-40, 40) + 'deg');
+    f.style.animationDuration = rand(4, 8) + 's';
+    host.appendChild(f);
+    setTimeout(() => f.remove(), 8000);
+  }
+  for (let i = 0; i < 8; i++) setTimeout(drop, i * 400);
+  setInterval(() => { for (let i = 0; i < 3; i++) setTimeout(drop, i * 300); }, 2500);
 }
 
 /* ── swipe deck ──────────────────────────────────────── */
@@ -389,20 +419,56 @@ function swipeCard(dir) {
   if (!card) return;
   if (dir === 'no')    card.classList.add('flip-left');
   if (dir === 'yes')   card.classList.add('flip-right');
-  if (dir === 'super') { card.classList.add('flip-super'); chipConfetti(); }
+  if (dir === 'super') { card.classList.add('flip-super'); }
   deckIdx++;
   setTimeout(renderDeck, 420);
 }
 
 /* ── lightbox ────────────────────────────────────────── */
 const MEDIA = [
-  { type: 'photo', file: 'photo1.jpg', emoji: '💗', quote: 'the day my world became prettier.' },
+  { type: 'photo', file: 'photo1.jpeg', emoji: '💗', quote: 'the day my world became prettier.' },
   { type: 'video', file: 'video1.mp4', emoji: '▶️', quote: 'your laugh — my favourite sound.' },
-  { type: 'photo', file: 'photo2.jpg', emoji: '💘', quote: 'proof that magic wears your face.' },
+  { type: 'photo', file: 'photo2.jpeg', emoji: '💘', quote: 'proof that magic wears your face.' },
   { type: 'video', file: 'video2.mp4', emoji: '▶️', quote: '3 seconds that rebooted my heart.' },
-  { type: 'photo', file: 'photo3.jpg', emoji: '🫶🏻', quote: 'my favourite part of everywhere.' },
+  { type: 'photo', file: 'photo3.jpeg', emoji: '🫶🏻', quote: 'my favourite part of everywhere.' },
   { type: 'video', file: 'video3.mp4', emoji: '▶️', quote: 'your eyes, a whole movie.' },
 ];
+
+/* ── show photos/videos right on the cards ─────────── */
+function initMediaCards() {
+  const cards = $$('.media-card');
+  cards.forEach((card, i) => {
+    const media = MEDIA[i];
+    if (!media) return;
+    const frame = card.querySelector('.media-frame');
+    if (!frame) return;
+    if (media.type === 'photo') {
+      const img = document.createElement('img');
+      img.className = 'preview-img';
+      img.src = media.file;
+      img.alt = media.quote;
+      img.loading = 'lazy';
+      frame.classList.add('has-media');
+      card.classList.add('has-media');
+      img.addEventListener('error', () => { frame.classList.remove('has-media'); card.classList.remove('has-media'); });
+      frame.prepend(img);
+    } else {
+      const v = document.createElement('video');
+      v.className = 'preview-video';
+      v.src = media.file;
+      v.muted = true;
+      v.loop = true;
+      v.playsInline = true;
+      v.autoplay = true;
+      v.preload = 'metadata';
+      frame.classList.add('has-media');
+      card.classList.add('has-media');
+      v.addEventListener('error', () => { frame.classList.remove('has-media'); card.classList.remove('has-media'); });
+      frame.prepend(v);
+    }
+  });
+}
+initMediaCards();
 $$('.media-card').forEach(c => {
   c.addEventListener('click', () => {
     const kind = c.classList.contains('video-card') ? 'video' : 'photo';
@@ -450,6 +516,13 @@ function closeLightbox() {
   $('#lightbox').classList.add('hidden');
   $('#lbContent').innerHTML = '';
 }
+// tap the dark backdrop (or press Escape) to close
+$('#lightbox').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeLightbox();
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !$('#lightbox').classList.contains('hidden')) closeLightbox();
+});
 
 /* ── candle + wish ───────────────────────────────────── */
 $('#blowBtn').addEventListener('click', () => {
@@ -458,66 +531,4 @@ $('#blowBtn').addEventListener('click', () => {
   btn.classList.add('blown');
   btn.textContent = '🙈 wish already sent to the universe';
   $('#wishMessage').classList.remove('hidden');
-  chipConfetti();
 });
-
-/* ── confetti (hand-rolled, no CDN) ──────────────────── */
-const confettiCanvas = $('#confettiCanvas');
-const ctx = confettiCanvas.getContext('2d');
-let confetti = [];
-let confettiRunning = false;
-
-function resizeCanvas() {
-  confettiCanvas.width = window.innerWidth;
-  confettiCanvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
-
-function chipConfetti() {
-  const colors = ['#ff2e63', '#ffd700', '#3ef0b0', '#c850c0', '#ff8fb3', '#7cffcb', '#fca311'];
-  for (let i = 0; i < 150; i++) {
-    confetti.push({
-      x: Math.random() * confettiCanvas.width,
-      y: -20 - Math.random() * confettiCanvas.height * 0.3,
-      w: rand(6, 14),
-      h: rand(8, 18),
-      vy: rand(2, 6),
-      vx: rand(-2, 2),
-      rot: rand(0, 360),
-      vr: rand(-6, 6),
-      color: pick(colors),
-      shape: Math.random() > .5 ? 'rect' : 'heart',
-    });
-  }
-  if (!confettiRunning) { confettiRunning = true; confettiLoop(); }
-}
-function confettiLoop() {
-  ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-  for (const c of confetti) {
-    c.x += c.vx; c.y += c.vy; c.rot += c.vr;
-    if (c.shape === 'heart') {
-      ctx.save();
-      ctx.translate(c.x, c.y);
-      ctx.rotate(c.rot * Math.PI / 180);
-      ctx.fillStyle = c.color;
-      ctx.font = c.w + 'px sans-serif';
-      ctx.fillText('💗', 0, 0);
-      ctx.restore();
-    } else {
-      ctx.save();
-      ctx.translate(c.x, c.y);
-      ctx.rotate(c.rot * Math.PI / 180);
-      ctx.fillStyle = c.color;
-      ctx.fillRect(-c.w / 2, -c.h / 2, c.w, c.h);
-      ctx.restore();
-    }
-  }
-  confetti = confetti.filter(c => c.y < confettiCanvas.height + 30);
-  if (confetti.length === 0) {
-    confettiRunning = false;
-    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
-    return;
-  }
-  requestAnimationFrame(confettiLoop);
-}

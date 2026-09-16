@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#ff4d88">
 <title>For My Ridhi 💗 — The Queen of My Heart</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=10">
 </head>
 <body>
 
@@ -19,21 +19,103 @@
   <span class="cm-emoji">🎵</span>
   <span class="cm-eq hidden"><i></i><i></i><i></i><i></i></span>
 </button>
-<audio id="bgMusic" loop preload="auto">
-  <source id="musicSrc1" src="song.mp3" type="audio/mpeg">
-  <source id="musicSrc2" src="tu_chahiye.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop preload="auto" autoplay>
+  <source id="musicSrc1" src="khat.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ═══════════════════ SCENE 1 : HEARTY INTRO ═══════════════════ -->
+<!-- ═══════════════════ SCENE 1 : TULIP BLOOMING INTRO ═══════════════════ -->
 <div id="introScreen" class="intro-screen">
-  <div class="intro-flower">
-    <div class="petal-rain-zone" id="introPetals"></div>
-    <div class="intro-heart">💗</div>
+  <div class="tulip-garden" id="tulipGarden">
+    <!-- Ground/Soil -->
+    <div class="garden-soil">
+      <div class="soil-particles" id="soilParticles"></div>
+    </div>
+    
+    <!-- Tulip Plant -->
+    <div class="tulip-plant" id="tulipPlant">
+      <!-- Roots (hidden initially, grow down) -->
+      <div class="tulip-roots" id="tulipRoots">
+        <div class="root root-1"></div>
+        <div class="root root-2"></div>
+        <div class="root root-3"></div>
+        <div class="root root-4"></div>
+      </div>
+      
+      <!-- Stem -->
+      <div class="tulip-stem" id="tulipStem">
+        <div class="stem-glow"></div>
+        <div class="stem-nodes">
+          <div class="stem-node node-1"></div>
+          <div class="stem-node node-2"></div>
+        </div>
+      </div>
+      
+      <!-- Leaves -->
+      <div class="tulip-leaves" id="tulipLeaves">
+        <div class="leaf leaf-left" id="leafLeft"></div>
+        <div class="leaf leaf-right" id="leafRight"></div>
+      </div>
+      
+      <!-- Tulip Bud/Flower -->
+      <div class="tulip-flower" id="tulipFlower">
+        <!-- Outer petals (3) -->
+        <div class="petal outer-petal petal-1" id="petal1">
+          <div class="petal-inner"></div>
+          <div class="petal-vein"></div>
+          <div class="petal-glow"></div>
+        </div>
+        <div class="petal outer-petal petal-2" id="petal2">
+          <div class="petal-inner"></div>
+          <div class="petal-vein"></div>
+          <div class="petal-glow"></div>
+        </div>
+        <div class="petal outer-petal petal-3" id="petal3">
+          <div class="petal-inner"></div>
+          <div class="petal-vein"></div>
+          <div class="petal-glow"></div>
+        </div>
+        
+        <!-- Inner petals (3) -->
+        <div class="petal inner-petal petal-4" id="petal4">
+          <div class="petal-inner"></div>
+          <div class="petal-vein"></div>
+          <div class="petal-glow"></div>
+        </div>
+        <div class="petal inner-petal petal-5" id="petal5">
+          <div class="petal-inner"></div>
+          <div class="petal-vein"></div>
+          <div class="petal-glow"></div>
+        </div>
+        <div class="petal inner-petal petal-6" id="petal6">
+          <div class="petal-inner"></div>
+          <div class="petal-vein"></div>
+          <div class="petal-glow"></div>
+        </div>
+        
+        <!-- Center/Stamen -->
+        <div class="tulip-center" id="tulipCenter">
+          <div class="stamen" id="stamen1"><div class="anther"></div></div>
+          <div class="stamen" id="stamen2"><div class="anther"></div></div>
+          <div class="stamen" id="stamen3"><div class="anther"></div></div>
+          <div class="stamen" id="stamen4"><div class="anther"></div></div>
+          <div class="stamen" id="stamen5"><div class="anther"></div></div>
+          <div class="stamen" id="stamen6"><div class="anther"></div></div>
+          <div class="pistil" id="pistil"><div class="stigma"></div></div>
+          <div class="center-glow"></div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Floating hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Name at the root -->
+    <div class="tulip-name" id="tulipName">Ridhi</div>
   </div>
 
-  <div class="intro-title">Ridhi 💗</div>
-  <div class="intro-sub">the world got prettier on 17 september 2006…</div>
-  <div class="intro-tap" id="introTap">✨ tap to open your world ✨</div>
+  <div class="intro-content">
+    <div class="intro-tagline" id="introTagline">you are the most beautiful story my life has ever told</div>
+  </div>
 </div>
 
 <!-- ═══════════════════ SCENE 2 : TEASEFUL QUIZ GATE ═══════════════════ -->
@@ -76,28 +158,23 @@
 
   <!-- Hero -->
   <section class="hero">
-    <p class="hero-kicker">🎉 the day the earth got lucky 🎉</p>
-    <h1 class="hero-title">HAPPY 20TH<br><span>BIRTHDAY RIDHUUU</span></h1>
-    <p class="hero-sub">my love, my baby, my whole entire world 💞</p>
+    <div class="hero-flowers" id="heroFlowers"></div>
+    <p class="hero-kicker">the day the sun smiled brighter</p>
+    <h1 class="hero-title">HAPPY 20TH<br><span>BIRTHDAY, RIDHUUU ✨</span></h1>
+    <p class="hero-sub">To my love, my baby, my whole entire universe. 💕</p>
   </section>
 
   <!-- Time on Earth -->
   <section class="time-section">
     <div class="time-card">
-      <h2>🌍 earth's lucky number is: <span class="accent">YOU</span></h2>
-      <p class="time-date">born 17 september 2006 • the day the universe smiled</p>
+      <h2>earth's lucky number: <span class="accent">you</span></h2>
+      <p class="time-date">Born 17 September 2006 — the moment my world began</p>
       <div class="earth-timer">
-        <div class="et-box et-years"><span id="etYears">20</span><small>years of gold</small></div>
-        <div class="et-box et-months"><span id="etMonths">0</span><small>months of magic</small></div>
-        <div class="et-box et-mins"><span id="etMins">0</span><small>minutes of us</small></div>
-        <div class="et-box et-secs"><span id="etSecs">0</span><small>seconds of love</small></div>
+        <div class="et-box et-years"><span id="etYears">20</span><small>YEARS OF YOUR GRACE</small></div>
+        <div class="et-box et-months"><span id="etMonths">240</span><small>MONTHS OF PURE JOY</small></div>
+        <div class="et-box et-mins"><span id="etMins">0</span><small>MINUTES YOU'VE BLESSED THIS WORLD</small></div>
+        <div class="et-box et-secs"><span id="etSecs">0</span><small>SECONDS YOU HAVE LIT UP THE UNIVERSE</small></div>
       </div>
-      <div class="time-stats">
-        <div class="stat"><span id="statHeartbeats">0</span><small>heartbeats I've missed counting</small></div>
-        <div class="stat"><span id="statBreaths">0</span><small>breaths of pure magic</small></div>
-        <div class="stat"><span id="statMoments">0</span><small>reasons the world is better</small></div>
-      </div>
-      <p class="time-caption">the planet has been <b>showing off</b> ever since 💅✨</p>
     </div>
   </section>
 
@@ -105,9 +182,8 @@
   <section class="letter-section">
     <div class="love-letter">
       <div class="letter-seal">💌</div>
-      <h2>A letter from the boy who loves you most</h2>
+      <h2>a letter from your boy</h2>
       <div class="letter-body" id="letterBody"></div>
-      <p class="letter-sign">— forever yours, vanshuuuu 🫶🏻</p>
     </div>
   </section>
 
@@ -136,7 +212,6 @@
           <div class="media-stamp">💗</div>
           <span class="media-quote">the day you smiled at me, I forgot my own name</span>
         </div>
-        <div class="media-label">our photo #1</div>
         <button class="media-add">➕ add photo</button>
       </div>
       <div class="media-card video-card">
@@ -144,7 +219,6 @@
           <div class="play-btn">▶</div>
           <span class="media-quote">the sound of your laugh deserves its own anthems</span>
         </div>
-        <div class="media-label">our video #1</div>
         <button class="media-add">➕ add video</button>
       </div>
       <div class="media-card photo-card">
@@ -152,7 +226,6 @@
           <div class="media-stamp">💘</div>
           <span class="media-quote">proof that magic is just you being you</span>
         </div>
-        <div class="media-label">our photo #2</div>
         <button class="media-add">➕ add photo</button>
       </div>
       <div class="media-card video-card">
@@ -160,7 +233,6 @@
           <div class="play-btn">▶</div>
           <span class="media-quote">a 3-second clip that rebooted my heart</span>
         </div>
-        <div class="media-label">our video #2</div>
         <button class="media-add">➕ add video</button>
       </div>
       <div class="media-card photo-card">
@@ -168,7 +240,6 @@
           <div class="media-stamp">🫶🏻</div>
           <span class="media-quote">my favourite part of everywhere</span>
         </div>
-        <div class="media-label">our photo #3</div>
         <button class="media-add">➕ add photo</button>
       </div>
       <div class="media-card video-card">
@@ -176,12 +247,11 @@
           <div class="play-btn">▶</div>
           <span class="media-quote">your eyes, but make it a love story</span>
         </div>
-        <div class="media-label">our video #3</div>
         <button class="media-add">➕ add video</button>
       </div>
     </div>
 
-    <div class="media-tip">✨ tip: drop your photos/videos into the <b>ridhi folder</b> and rename them to match the card below — they'll auto-appear ✨</div>
+    <div class="media-tip">✨ tip: drop your photos (photo1.jpeg, photo2.jpeg, photo3.jpeg) and videos (video1.mp4, video2.mp4, video3.mp4) into the <b>ridhi folder</b> — they'll auto-appear ✨</div>
   </section>
 
   <!-- Romantic Trending Card -->
@@ -231,14 +301,12 @@
 
 <!-- ═══════════════════ LIGHTBOX ═══════════════════ -->
 <div id="lightbox" class="lightbox hidden">
+  <button class="lb-back" onclick="closeLightbox()">← back</button>
   <button class="lb-close" onclick="closeLightbox()">✕</button>
   <div class="lb-content" id="lbContent"></div>
-  <p class="lb-hint">once you add your photo/video here, this box glows with your memories 💫</p>
+  <p class="lb-hint">tap the dark area around the photo to close 💫</p>
 </div>
 
-<!-- confetti canvas -->
-<canvas id="confettiCanvas"></canvas>
-
-<script src="script.js"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>
