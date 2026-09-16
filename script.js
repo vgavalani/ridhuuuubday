@@ -281,9 +281,6 @@ function initEarthTimers() {
     y: $('#etYears'), mo: $('#etMonths'), mi: $('#etMins'), s: $('#etSecs'),
   });
 
-  // mini timers dropped into every section
-  $$('.earth-holder[data-mini]').forEach(host => all.push(buildMini(host)));
-
   const hb = $('#statHeartbeats'), br = $('#statBreaths'), mo = $('#statMoments');
   const startNow = Date.now();
 
@@ -316,32 +313,6 @@ function initEarthTimers() {
     v = String(v);
     if (el.textContent !== v) el.textContent = v;
   }
-}
-
-function buildMini(host) {
-  const grid = document.createElement('div');
-  grid.className = 'mini-earth';
-  const refs = {};
-  [['y', 'years'], ['mo', 'months'], ['mi', 'minutes'], ['s', 'seconds']].forEach(([k, label]) => {
-    const box = document.createElement('div');
-    box.className = 'et-box';
-    const s = document.createElement('span');
-    s.textContent = '0';
-    const sm = document.createElement('small');
-    sm.textContent = label;
-    box.appendChild(s);
-    box.appendChild(sm);
-    grid.appendChild(box);
-    refs[k] = s;
-  });
-  host.appendChild(grid);
-  if (host.dataset.mini) {
-    const c = document.createElement('div');
-    c.className = 'mini-caption';
-    c.textContent = host.dataset.mini;
-    host.appendChild(c);
-  }
-  return refs;
 }
 
 /* ── love letter typing ──────────────────────────────── */

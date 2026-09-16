@@ -28,48 +28,12 @@
 <div id="introScreen" class="intro-screen">
   <div class="intro-flower">
     <div class="petal-rain-zone" id="introPetals"></div>
-
-    <div class="plant-stage">
-      <svg class="plant-svg" viewBox="0 0 340 460" fill="none">
-        <!-- soil body -->
-        <ellipse class="soil" cx="170" cy="352" rx="150" ry="26" fill="#6b3f1d"/>
-        <!-- roots (draw first, they grow up into the stem) -->
-        <g class="roots">
-          <path class="rp r1" pathLength="1" d="M170 350 C158 380 120 400 88 416" stroke="#9a6a3a" stroke-width="7" stroke-linecap="round"/>
-          <path class="rp r2" pathLength="1" d="M170 352 C176 372 150 396 128 412" stroke="#b5824d" stroke-width="5.5" stroke-linecap="round"/>
-          <path class="rp r3" pathLength="1" d="M170 354 C182 380 215 402 246 418" stroke="#9a6a3a" stroke-width="7" stroke-linecap="round"/>
-          <path class="rp r4" pathLength="1" d="M170 356 C176 388 205 408 224 428" stroke="#b5824d" stroke-width="5.5" stroke-linecap="round"/>
-        </g>
-        <!-- stem -->
-        <path class="stem" pathLength="1" d="M170 350 C166 300 174 250 169 205 C166 190 168 178 170 168"/>
-        <!-- leaves -->
-        <path class="leaf leaf-l" pathLength="1" d="M170 292 C120 272 92 284 84 300 C100 312 134 316 170 300 Z"/>
-        <path class="leaf leaf-r" pathLength="1" d="M170 252 C216 232 246 238 256 254 C240 268 206 268 170 260 Z"/>
-        <!-- small heart roots -->
-        <path class="rp root-heart" pathLength="1" d="M170 358 C150 356 138 366 140 378 C142 392 158 396 170 386 C182 396 198 392 200 378 C202 366 190 356 170 358 Z" stroke="#ff5e96" stroke-width="4"/>
-      </svg>
-
-      <!-- blooming flower on top of the stem -->
-      <div class="bloom bloom-top" id="introBloom">
-        <div class="petal"></div><div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div>
-        <div class="flower-center intro-center">💗</div>
-      </div>
-
-      <!-- side roses -->
-      <div class="rose rose-left"></div>
-      <div class="rose rose-right"></div>
-      <div class="blurb blurb-1">🌷</div>
-      <div class="blurb blurb-2">🌹</div>
-      <div class="blurb blurb-3">🌸</div>
-      <div class="blurb blurb-4">💐</div>
-    </div>
+    <div class="intro-heart">💗</div>
   </div>
 
   <div class="intro-title">Ridhi 💗</div>
-  <div class="intro-sub">planting the most beautiful thing earth ever saw…</div>
-  <div class="intro-tap" id="introTap">✨ tap to bloom your world ✨</div>
+  <div class="intro-sub">the world got prettier on 17 september 2006…</div>
+  <div class="intro-tap" id="introTap">✨ tap to open your world ✨</div>
 </div>
 
 <!-- ═══════════════════ SCENE 2 : TEASEFUL QUIZ GATE ═══════════════════ -->
@@ -112,16 +76,9 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="big-flower" id="heroFlower">
-      <div class="bf-petal"></div><div class="bf-petal"></div><div class="bf-petal"></div>
-      <div class="bf-petal"></div><div class="bf-petal"></div><div class="bf-petal"></div>
-      <div class="bf-petal"></div><div class="bf-petal"></div>
-      <div class="bf-center">💗</div>
-    </div>
     <p class="hero-kicker">🎉 the day the earth got lucky 🎉</p>
     <h1 class="hero-title">HAPPY 20TH<br><span>BIRTHDAY RIDHUUU</span></h1>
     <p class="hero-sub">my love, my baby, my whole entire world 💞</p>
-    <div class="earth-holder hero-holder" data-mini="since the queen arrived…"></div>
   </section>
 
   <!-- Time on Earth -->
@@ -149,7 +106,6 @@
     <div class="love-letter">
       <div class="letter-seal">💌</div>
       <h2>A letter from the boy who loves you most</h2>
-      <div class="earth-holder" data-mini="you've been making the universe better for…"></div>
       <div class="letter-body" id="letterBody"></div>
       <p class="letter-sign">— forever yours, vanshuuuu 🫶🏻</p>
     </div>
@@ -166,7 +122,6 @@
       <p>Then I remembered my birthday last time. <b>You</b> — sleepy, at 12am, on call — just because you knew I loved it. You showed up for ME in my language, even when it wasn't yours.</p>
       <p>So now it's your day, my queen. And this one is <b>100% yours.</b> Calls if you want, texts if you like, silence if you'd rather — I'll love you loudly in whatever way YOU feel loved. No traditions, no "shoulds".</p>
       <div class="midnight-end">the queen's rules, remembered. 👑💗</div>
-      <div class="earth-holder" data-mini="even at midnight, it's her way 💜"></div>
     </div>
   </section>
 
@@ -174,7 +129,6 @@
   <section class="memories">
     <h2 class="section-title">our little universe 📸🎬</h2>
     <p class="section-sub">tap to fall in love with us all over again</p>
-    <div class="earth-holder" data-mini="&amp; counting — every second more beautiful"></div>
 
     <div class="media-grid">
       <div class="media-card photo-card">
@@ -235,7 +189,6 @@
     <div class="trend-card">
       <div class="trend-glow"></div>
       <h2 class="section-title">💖 why i'm trending on every app rn 💖</h2>
-      <div class="earth-holder" data-mini="this is how long you've owned the world:"></div>
       <div class="trend-items">
         <div class="trend-item"><span class="trend-no">#1</span> most obsessed boy in the world</div>
         <div class="trend-item"><span class="trend-no">#2</span> mentally living in a Ridhi edit</div>
@@ -249,7 +202,6 @@
   <!-- Reasons / Swipe Hearts -->
   <section class="reasons-section">
     <h2 class="section-title">💗 my heart is obsessed with you 💗</h2>
-    <div class="earth-holder" data-mini="all these seconds, one girl ✨"></div>
     <div id="swipeDeck" class="swipe-deck"></div>
     <div class="swipe-controls">
       <button class="swipe-btn swipe-no" onclick="swipeCard('no')">👎</button>
@@ -262,7 +214,6 @@
   <!-- Final Wish -->
   <section class="wish-section">
     <div class="candle-box">
-      <div class="earth-holder" data-mini="time the universe spent perfecting you…"></div>
       <div class="candle">
         <div class="candle-flame"></div>
         <div class="candle-body"></div>
