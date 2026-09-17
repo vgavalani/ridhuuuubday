@@ -328,6 +328,19 @@ function initEarthTimers() {
     setTxt(el.mo, months.toLocaleString('en-IN'));
     setTxt(el.mi, minutes.toLocaleString('en-IN'));
     setTxt(el.s, seconds.toLocaleString('en-IN'));
+    fitNumbers();
+  }
+  function fitNumbers() {
+    Object.keys(el).forEach(k => {
+      const box = el[k].closest('.et-box');
+      if (!box) return;
+      const span = el[k];
+      let fs = parseFloat(getComputedStyle(span).fontSize);
+      while (span.scrollWidth > box.clientWidth && fs > 8) {
+        fs -= 0.5;
+        span.style.fontSize = fs + 'px';
+      }
+    });
   }
   function setTxt(node, v) {
     v = String(v);
